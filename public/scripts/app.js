@@ -81,7 +81,25 @@ function renderTweets(tweets) {
   // takes return value and appends it to the tweets container
 }
 
+function ajaxRequest() {
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    $.ajax({
+        url: $(this).attr("action"),
+        type: $(this).attr("method"),
+        data: $(this).serialize()
+      })
+      .done(function () {
+        console.log("Post success")
+      })
+  })
+  // //  ("/:tweets", {method: 'GET'}).then(function(response){
+  // //   //  $("tweet-container").append(response.serialize())
+  // //   console.log("response: ", response.serialize())
+  //  })
+}
 
 $(document).ready(function () {
   renderTweets(data)
+  ajaxRequest()
 })
