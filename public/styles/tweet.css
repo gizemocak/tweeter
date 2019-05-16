@@ -58,6 +58,7 @@
 
 #tweet-container .tweet {
   opacity: 0.8;
+  margin-bottom: 15px;
 }
 
 #tweet-container .tweet:hover {

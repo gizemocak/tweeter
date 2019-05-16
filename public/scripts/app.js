@@ -38,12 +38,14 @@ function ajaxRequest() {
   $("form").on("submit", function (event) {
     event.preventDefault();
     const textarea = $("textarea").val()
-
     if (textarea === null || textarea === "") {
-      alert("Plase enter a tweet!")
+      $(".error-message").text("Plase Enter a Tweet!").slideDown(400)
+
     } else if (textarea.length > 140) {
-      alert('Maximum 140 characters!')
+      $(".error-message").text("Maximum 140 Characters!").slideDown(400)
     } else {
+      // Can add a success message saying the successfully tweeted!-can use settimeout//
+      $(".error-message").slideUp(400)
 
       $.ajax({
           url: $(this).attr("action"),
@@ -69,6 +71,13 @@ function loadTweets() {
 }
 
 $(document).ready(function () {
+  $(".error-message").hide()
+  $("#nav-bar button").on("click", function () {
+    $(".new-tweet").slideToggle(400, function () {
+      $("textarea").focus()
+    })
+  })
+
   ajaxRequest()
   loadTweets()
 })

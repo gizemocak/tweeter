@@ -27,8 +27,11 @@
 
   <!-- Top nav bar (fixed) -->
   <nav id="nav-bar">
-    <img class="logo" src="/images/bird.png">
-    <span class="header">Tweeter</span>
+    <div>
+      <img class="logo" src="/images/bird.png">
+      <span class="header">Tweeter</span>
+    </div>
+    <button>Compose</button>
   </nav>
   <!-- Page-specific (main) content here -->
   <main class="container">
@@ -40,6 +43,7 @@
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </div>
+        <div class="error-message"></div>
       </form>
     </section>
     <section id="tweet-container">

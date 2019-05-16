@@ -3,7 +3,7 @@
   border-radius: 5px;
   background: #ECECEC;
   padding: 0 0.8em;
-  margin: 0 2em 6em 2em;
+  margin: 0 2em 1em 2em;
 }
 
 .new-tweet h2 {
@@ -27,6 +27,12 @@
 
 .new-tweet .submit-container span {
   font-style: italic
+}
+
+.new-tweet .error-message {
+  background: #E6FD9D;
+  width: 300px;
+  height: 20px;
 }
 
 .turn-red {
