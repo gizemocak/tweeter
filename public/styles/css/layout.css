@@ -1,0 +1,31 @@
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main {
+  padding-top: 95px;
+  width: 450px;
+  align-self: center;
+  background: #fff;
+}
+
+/*# sourceMappingURL=layout.css.map */

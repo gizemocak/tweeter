@@ -1,0 +1,40 @@
+.new-tweet {
+  border: 1px solid #DADADA;
+  border-radius: 5px;
+  background: #ECECEC;
+  padding: 0 0.8em;
+  margin: 0 2em 1em 2em;
+
+  h2 {
+    border-bottom: 1px solid #6C6C6C;
+    color: #004d4d;
+  }
+
+  textarea {
+    padding: 9px;
+    width: 100%;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  .submit-container {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-style: italic;
+    }
+  }
+
+  .error-message {
+    background: #E6FD9D;
+    width: 300px;
+    height: 20px;
+  }
+}
+
+.turn-red {
+  color: red;
+}

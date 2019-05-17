@@ -1,0 +1,16 @@
+body {
+  background: salmon;
+  color: red;
+
+  main {
+    border: 2px solid greenyellow;
+
+    article {
+      background: blue;
+
+      section {
+        background: red;
+      }
+    }
+  }
+}
