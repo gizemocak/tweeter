@@ -24,6 +24,9 @@
 #nav-bar button.compose {
   margin-right: 20px;
 }
+#nav-bar button.login {
+  margin-top: 15px;
+}
 #nav-bar button.login,
 #nav-bar button.compose {
   color: #00a087;
