@@ -14,6 +14,10 @@ module.exports = function (DataHelpers) {
     })
   })
 
+  // tweetsRoutes.get("/login", function (req, res) {
+  //   res.render("/login.html")
+  // })
+
   tweetsRoutes.get("/", function (req, res) {
     DataHelpers.getTweets((err, tweets) => {
       console.log(tweets + ';')
@@ -41,6 +45,7 @@ module.exports = function (DataHelpers) {
       content: {
         text: req.body.text
       },
+      likes: [],
       created_at: Date.now()
     };
 

@@ -41,7 +41,12 @@ function createTweetElement(tweet) {
   let $icons = $("<div>")
   let $flag = $("<i>").attr("href", "#").addClass("fas fa-flag font-awesome")
   let $retweet = $("<i>").attr("href", "#").addClass("fas fa-retweet font-awesome")
-  let $heart = $("<i>").attr("href", "#").addClass("like fas fa-heart font-awesome").text(tweet.likes.length)
+  let $heart = $("<i>").attr("href", "#").addClass("like fas fa-heart font-awesome")
+  if (tweet.likes) {
+    $heart.text(tweet.likes.length)
+  } else {
+
+  }
   let $date = $("<div>").text(tweetDate)
   $icons.append($flag).append($retweet).append($heart)
   $footer.append($date).append($icons)
@@ -128,7 +133,6 @@ $(document).ready(function () {
       $("textarea").focus()
     })
   })
-
 
   ajaxRequest()
   loadTweets()
