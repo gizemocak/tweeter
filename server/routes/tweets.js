@@ -8,19 +8,13 @@ const tweetsRoutes = express.Router();
 module.exports = function (DataHelpers) {
 
   tweetsRoutes.post("/likes", function (req, res) {
-    // console.log("req", req.body.id)
     DataHelpers.updateLikes(req.body.id, function (err, updatedTweet) {
       res.send(updatedTweet)
     })
   })
 
-  // tweetsRoutes.get("/login", function (req, res) {
-  //   res.render("/login.html")
-  // })
-
   tweetsRoutes.get("/", function (req, res) {
     DataHelpers.getTweets((err, tweets) => {
-      console.log(tweets + ';')
       if (err) {
         res.status(500).json({
           error: err.message

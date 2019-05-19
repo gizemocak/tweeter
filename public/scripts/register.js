@@ -1,12 +1,12 @@
 function login() {
-  $(".login-form").on("submit", function (event) {
+  $(".register-form").on("submit", function (event) {
     event.preventDefault();
     $.ajax({
       url: $(this).attr("action"),
       type: $(this).attr("method"),
       data: $(this).serialize()
     }).done(function () {
-      console.log("Login Post succeed")
+      console.log("Register Post succeed")
     })
   })
 }

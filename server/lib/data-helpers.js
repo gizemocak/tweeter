@@ -58,6 +58,38 @@ module.exports = function makeDataHelpers(db) {
           })
         }
       })
+    },
+    //Register
+    register: function (user, callback) {
+      //if user does not exist in the user db
+
+      const {
+        email
+      } = user
+      console.log('email', email)
+      db.collection("users").findOne({
+          email
+        })
+        .then(foundUser => {
+          console.log('foundUser', foundUser)
+          if (!foundUser) {
+            db.collection("users").insertOne(user).then(newUser => {
+              console.log("newUser", newUser.insertedId)
+              callback(null, newUser.insertedId)
+            })
+          } else {
+            callback({
+              message: 'user exists'
+            }, null)
+          }
+        })
+
+
+      //   .then(() => {
+      //     const user = db.collection("users").findOne(obj)
+      //   }).then(user => {
+      //     callback(null, user)
+      // }
     }
-  };
+  }
 }

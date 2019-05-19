@@ -22,7 +22,11 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
   const DataHelpers = require("./lib/data-helpers.js")(db);
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+  const loginRoutes = require("./routes/login-routes")(DataHelpers);
+  const registerRoutes = require("./routes/register-routes")(DataHelpers)
   app.use("/tweets", tweetsRoutes);
+  app.use("/login", loginRoutes);
+  app.use("/register", registerRoutes);
 })
 // The in-memory database of tweets. It's a basic object with an array in it.
 
