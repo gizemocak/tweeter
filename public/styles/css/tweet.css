@@ -70,4 +70,8 @@
   visibility: visible;
 }
 
+.like.fas.fa-heart.font-awesome {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=tweet.css.map */
