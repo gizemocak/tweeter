@@ -41,12 +41,12 @@ function createTweetElement(tweet) {
   let $icons = $("<div>")
   let $flag = $("<i>").attr("href", "#").addClass("fas fa-flag font-awesome")
   let $retweet = $("<i>").attr("href", "#").addClass("fas fa-retweet font-awesome")
-  let $heart = $("<i>").attr("href", "#").addClass("fas fa-heart font-awesome")
+  let $heart = $("<i>").attr("href", "#").addClass("like fas fa-heart font-awesome").text(tweet.likes.length)
   let $date = $("<div>").text(tweetDate)
   $icons.append($flag).append($retweet).append($heart)
   $footer.append($date).append($icons)
-
-  let $tweet = $("<article>").addClass("tweet");
+  console.log('ghg', tweet._id)
+  let $tweet = $("<article>").attr("data-tweetid", tweet._id).addClass("tweet");
   $tweet.append($header).append($content).append($footer)
   return $tweet;
 }
@@ -96,7 +96,27 @@ function loadTweets() {
       type: "GET"
     })
     .done(function (data) {
+
       renderTweets(data)
+
+      $("article").on("click", function (event) {
+
+        if (event.target.className === 'like fas fa-heart font-awesome') {
+          console.log('data id', event.currentTarget.dataset.tweetid)
+          const tweetId = event.currentTarget.dataset.tweetid
+          $.ajax({
+              url: "/tweets/likes",
+              type: "POST",
+              data: {
+                id: tweetId
+              }
+            })
+            .done(function () {
+              console.log("post request SUCCESS")
+            })
+        }
+
+      })
     })
 }
 
@@ -108,6 +128,7 @@ $(document).ready(function () {
       $("textarea").focus()
     })
   })
+
 
   ajaxRequest()
   loadTweets()
