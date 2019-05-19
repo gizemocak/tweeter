@@ -111,8 +111,8 @@ function loadTweets() {
                 id: tweetId
               }
             })
-            .done(function () {
-              console.log("post request SUCCESS")
+            .done(function (tweet) {
+              $(".like.fas.fa-heart.font-awesome").text(tweet.likes.length)
             })
         }
 

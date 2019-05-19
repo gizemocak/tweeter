@@ -35,10 +35,15 @@ module.exports = function makeDataHelpers(db) {
             $push: {
               likes: 'ocak'
             }
+          }).then(res => {
+            const updatedTweet = db.collection("tweets").findOne({
+              "_id": ObjectId(id)
+            }).then(updated => {
+              callback(null, updated)
+            })
           })
         }
       })
-
 
     }
   };

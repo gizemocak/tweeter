@@ -8,9 +8,10 @@ const tweetsRoutes = express.Router();
 module.exports = function (DataHelpers) {
 
   tweetsRoutes.post("/likes", function (req, res) {
-    console.log("req", req.body.id)
-    DataHelpers.updateLikes(req.body.id, console.log("req"))
-    res.send('ok')
+    // console.log("req", req.body.id)
+    DataHelpers.updateLikes(req.body.id, function (err, updatedTweet) {
+      res.send(updatedTweet)
+    })
   })
 
   tweetsRoutes.get("/", function (req, res) {
