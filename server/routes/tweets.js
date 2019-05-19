@@ -16,7 +16,7 @@ module.exports = function (DataHelpers) {
 
   tweetsRoutes.get("/", function (req, res) {
     DataHelpers.getTweets((err, tweets) => {
-      console.log(tweets)
+      console.log(tweets + ';')
       if (err) {
         res.status(500).json({
           error: err.message

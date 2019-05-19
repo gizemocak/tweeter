@@ -28,7 +28,7 @@ module.exports = function makeDataHelpers(db) {
       const tweet = db.collection("tweets").findOne({
         "_id": ObjectId(id)
       }).then((tweet) => {
-        if (tweet) {
+        if (!tweet.likes.includes("ocak")) {
           db.collection("tweets").update({
             "_id": ObjectId(id)
           }, {
@@ -42,9 +42,22 @@ module.exports = function makeDataHelpers(db) {
               callback(null, updated)
             })
           })
+        } else {
+          db.collection("tweets").update({
+            "_id": ObjectId(id)
+          }, {
+            $pull: {
+              likes: 'ocak'
+            }
+          }).then(res => {
+            const updatedTweet = db.collection("tweets").findOne({
+              "_id": ObjectId(id)
+            }).then(updated => {
+              callback(null, updated)
+            })
+          })
         }
       })
-
     }
   };
 }
