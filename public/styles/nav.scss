@@ -24,12 +24,18 @@
     align-self: center;
   }
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
   button.compose {
     margin-right: 20px;
   }
 
   button.login {
     margin-top: 15px;
+    margin-right: 20px;
   }
 
   button.login,

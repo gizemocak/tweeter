@@ -4,10 +4,10 @@ var ObjectId = require('mongodb').ObjectID;
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
 
-// Defines helper functions for saving and getting tweets, using the database `db`
+// Defines helper functions using the database `db`
 module.exports = function makeDataHelpers(db) {
   return {
-    // Saves a tweet to `db`
+    // Saves a tweet to `db` 
     saveTweet: function (newTweet, callback) {
       db.collection("tweets").insertOne(newTweet);
       callback(null, true)
@@ -21,7 +21,7 @@ module.exports = function makeDataHelpers(db) {
         callback(null, tweets);
       });
     },
-    // Update Likes
+    // Update Likes helper function
     updateLikes: function (id, callback) {
       console.log('uplieks', `ObjectId("${id}")`)
       //db.tweets.find({"_id" : ObjectId("5cddea922c76b745845a7aae")}).pretty()
@@ -59,7 +59,7 @@ module.exports = function makeDataHelpers(db) {
         }
       })
     },
-    //Register
+    //Register user helper function
     register: function (user, callback) {
       //if user does not exist in the user db
 
@@ -83,13 +83,6 @@ module.exports = function makeDataHelpers(db) {
             }, null)
           }
         })
-
-
-      //   .then(() => {
-      //     const user = db.collection("users").findOne(obj)
-      //   }).then(user => {
-      //     callback(null, user)
-      // }
     }
   }
 }
