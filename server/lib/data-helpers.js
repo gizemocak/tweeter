@@ -23,7 +23,6 @@ module.exports = function makeDataHelpers(db) {
     },
     // Update Likes helper function
     updateLikes: function (id, callback) {
-      console.log('uplieks', `ObjectId("${id}")`)
       //db.tweets.find({"_id" : ObjectId("5cddea922c76b745845a7aae")}).pretty()
       const tweet = db.collection("tweets").findOne({
         "_id": ObjectId(id)
@@ -59,22 +58,17 @@ module.exports = function makeDataHelpers(db) {
         }
       })
     },
-    //Register user helper function
+    //Register new user helper function
     register: function (user, callback) {
-      //if user does not exist in the user db
-
       const {
         email
       } = user
-      console.log('email', email)
       db.collection("users").findOne({
           email
         })
         .then(foundUser => {
-          console.log('foundUser', foundUser)
           if (!foundUser) {
             db.collection("users").insertOne(user).then(newUser => {
-              console.log("newUser", newUser.insertedId)
               callback(null, newUser.insertedId)
             })
           } else {
@@ -83,6 +77,24 @@ module.exports = function makeDataHelpers(db) {
             }, null)
           }
         })
+    },
+    //login helper function
+    login: function (user, callback) {
+      const {
+        password,
+        email
+      } = user
+      db.collection("users").findOne({
+        email
+      }).then(foundUser => {
+        if (foundUser && password === foundUser.password) {
+          callback(null, foundUser)
+        } else {
+          callback({
+            message: 'user doesnt exist please register'
+          }, null)
+        }
+      })
     }
   }
 }

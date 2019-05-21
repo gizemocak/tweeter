@@ -1,12 +1,10 @@
 "use strict";
-
 const userHelper = require("../lib/util/user-helper")
-
 const express = require('express');
 const tweetsRoutes = express.Router();
 
 module.exports = function (DataHelpers) {
-
+  //-- tweets routes --//
   tweetsRoutes.post("/likes", function (req, res) {
     DataHelpers.updateLikes(req.body.id, function (err, updatedTweet) {
       res.send(updatedTweet)

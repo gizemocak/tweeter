@@ -6,7 +6,7 @@ function login() {
       type: $(this).attr("method"),
       data: $(this).serialize()
     }).done(function () {
-      console.log("Register Post succeed")
+      window.location.replace('/')
     })
   })
 }

@@ -1,3 +1,4 @@
+//--login--// 
 function login() {
   $(".login-form").on("submit", function (event) {
     event.preventDefault();
@@ -6,11 +7,12 @@ function login() {
       type: $(this).attr("method"),
       data: $(this).serialize()
     }).done(function () {
-      console.log("Login Post succeed")
+      window.location.replace('/')
     })
   })
 }
 
 $(document).ready(function () {
   login()
+
 })

@@ -31,17 +31,19 @@
 
   button.compose {
     margin-right: 20px;
+    width: 140px;
+    background: #cefef1;
   }
 
   button.login {
-    margin-top: 15px;
     margin-right: 20px;
+    background: #fff;
   }
 
   button.login,
   button.compose {
     color: #00a087;
-    background: #cefef1;
+    ;
     align-self: center;
     border: none;
     height: 50px;
@@ -57,6 +59,10 @@
 
   .nav-icon {
     margin-right: 5px;
+  }
+
+  .buttons {
+    margin-top: 7px;
   }
 
 }

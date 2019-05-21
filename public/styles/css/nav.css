@@ -27,15 +27,16 @@
 }
 #nav-bar button.compose {
   margin-right: 20px;
+  width: 140px;
+  background: #cefef1;
 }
 #nav-bar button.login {
-  margin-top: 15px;
   margin-right: 20px;
+  background: #fff;
 }
 #nav-bar button.login,
 #nav-bar button.compose {
   color: #00a087;
-  background: #cefef1;
   align-self: center;
   border: none;
   height: 50px;
@@ -49,6 +50,9 @@
 }
 #nav-bar .nav-icon {
   margin-right: 5px;
+}
+#nav-bar .buttons {
+  margin-top: 7px;
 }
 
 @media only screen and (max-width: 500px) {
