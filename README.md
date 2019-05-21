@@ -20,3 +20,10 @@ This repository is the starter code for the project: Students will fork and clon
 - md5
 - mongodb
 - sass
+
+## Screenshots
+
+!["Screenshot of tweets"](https://github.com/gizemocak/tweeter/blob/master/docs/Tweets.png?raw=true)
+!["Screenshot of new tweet"](https://github.com/gizemocak/tweeter/blob/master/docs/new-tweet.ong.png?raw=true)
+!["Screenshot of login Page"](https://github.com/gizemocak/tweeter/blob/master/docs/login-form.png?raw=true)
+!["Screenshot of registration Page"](https://github.com/gizemocak/tweeter/blob/master/docs/register-form.png?raw=true)
